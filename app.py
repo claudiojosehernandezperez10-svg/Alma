@@ -491,16 +491,16 @@ COMMUNITY_CONTENT = {
 # ==============================================================================
 
 IMPACT_CONTENT = {
-    "title": "El impacto que queremos crear",
+    "title": "El impacto que queremos crear en nuestra primera edición",
     "quote": "Cada número representa una historia, cada historia representa una familia.",
 }
 
 IMPACT_STATS = [
-    {"value": 50, "label": "Madres acompañadas", "icon": "users"},
-    {"value": 20, "label": "Sesiones de orientación", "icon": "heart"},
-    {"value": 23, "label": "Talleres realizados", "icon": "book-open"},
-    {"value": 50, "label": "Árboles plantados", "icon": "tree"},
-    {"value": 50, "label": "Historias acompañadas", "icon": "message-circle"},
+    {"value": 15, "label": "Madres acompañadas", "icon": "users"},
+    {"value": 25, "label": "Sesiones de orientación", "icon": "heart"},
+    {"value": 6, "label": "Talleres realizados", "icon": "book-open"},
+    {"value": 15, "label": "Árboles plantados", "icon": "tree"},
+    {"value": 15, "label": "Historias acompañadas", "icon": "message-circle"},
 ]
 
 
