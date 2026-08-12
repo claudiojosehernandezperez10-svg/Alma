@@ -259,9 +259,9 @@ def check_missing_images() -> list[str]:
 NAV_ITEMS = [
     {"id": "inicio", "label": "Inicio", "icon": "home"},
     {"id": "quienes-somos", "label": "¿Quiénes somos?", "icon": "users"},
-    {"id": "Programa", "label": "Campamento", "icon": "sun"},
+    {"id": "Programa", "label": "Programa", "icon": "sun"},
     {"id": "inscripcion", "label": "Inscripción", "icon": "edit"},
-    {"id": "comunidad", "label": "Comunidad", "icon": "message-circle"},
+    {"id": "Programa", "label": "Comunidad", "icon": "message-circle"},
     {"id": "impacto", "label": "Nuestro impacto", "icon": "bar-chart"},
     {"id": "contacto", "label": "Contacto", "icon": "mail"},
 ]
@@ -399,7 +399,7 @@ CAMP_DAY5_HIGHLIGHT = {
     "title": "Dejamos una huella",
     "body": (
         "Cierre presencial con actividades especiales y plantación de "
-        "árboles."
+        "árboles para conectar con la naturaleza."
     ),
     "footnote": "Un árbol por cada historia, una huella por cada mamá.",
 }
