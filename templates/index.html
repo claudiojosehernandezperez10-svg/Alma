@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ site.name }} — {{ site.tagline }}</title>
+<meta name="description" content="{{ site.description }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ============================== NAV LATERAL ============================== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <img src="{{ url_for('static', filename='images/' + images.logo) }}" alt="Logotipo de ALMA" onerror="this.style.display='none'">
+      <span class="sidebar-logo-text">{{ site.name }}</span>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        {% for item in nav_items %}
+        <li>
+          <a href="#{{ item.id }}" class="nav-link {% if loop.first %}active{% endif %}" data-section="{{ item.id }}">
+            <span class="nav-dot"></span>{{ item.label }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </aside>
+
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Abrir menú">☰</button>
+
+  <!-- ============================== CONTENIDO ============================== -->
+  <main class="content">
+
+    <!-- 1. INICIO -->
+    <section id="inicio" class="section hero-section">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="eyebrow-row">
+            {% for word in hero.eyebrow_words %}<span class="eyebrow">{{ word }}</span>{% if not loop.last %}<span class="eyebrow-dot">•</span>{% endif %}{% endfor %}
+          </div>
+          <h1 class="hero-title">
+            {{ hero.title_line_1 }}<br>{{ hero.title_line_2 }}<br>
+            <span class="hero-highlight">{{ hero.title_highlight }}</span>
+          </h1>
+          <p class="hero-subtitle">{{ hero.subtitle }}</p>
+          <div class="hero-actions">
+            <a href="#{{ hero.cta_primary.target }}" class="btn btn-primary">{{ hero.cta_primary.label }}</a>
+            <a href="#{{ hero.cta_secondary.target }}" class="btn btn-secondary">{{ hero.cta_secondary.label }}</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <img class="hero-art-leaf leaf-1" src="{{ url_for('static', filename='images/' + images.hoja_decorativa_1) }}" alt="" onerror="this.style.display='none'">
+          <img class="hero-art-leaf leaf-2" src="{{ url_for('static', filename='images/' + images.hoja_decorativa_2) }}" alt="" onerror="this.style.display='none'">
+          <img class="hero-art-main" src="{{ url_for('static', filename='images/' + images.hero_ilustracion) }}" alt="Ilustración de arcoíris ALMA" onerror="this.style.display='none'">
+          <img class="hero-art-heart" src="{{ url_for('static', filename='images/' + images.hero_corazon) }}" alt="" onerror="this.style.display='none'">
+        </div>
+      </div>
+      <div class="quote-banner">
+        <p>&ldquo;{{ hero.quote }}&rdquo;</p>
+        <span class="quote-heart">♥</span>
+      </div>
+    </section>
+
+    <!-- 2. QUIENES SOMOS -->
+    <section id="quienes-somos" class="section about-section">
+      <div class="about-grid">
+        <div class="about-main">
+          <h2 class="section-title">{{ about.title }}</h2>
+          <p class="section-body">{{ about.body }}</p>
+          <div class="about-cards">
+            <div class="tarjeta about-card">
+              <h3>♀ {{ about.mision.title }}</h3>
+              <p>{{ about.mision.text }}</p>
+            </div>
+            <div class="tarjeta about-card">
+              <h3>✦ {{ about.vision.title }}</h3>
+              <p>{{ about.vision.text }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-values">
+          <h3 class="values-title">Nuestros valores</h3>
+          <div class="values-grid">
+            {% for value in values %}
+            <div class="value-item">
+              <div class="value-icon">♥</div>
+              <h4>{{ value.title }}</h4>
+              <p>{{ value.text }}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. CAMPAMENTO -->
+    <section id="campamento" class="section camp-section">
+      <h2 class="section-title">{{ camp_intro.title }}</h2>
+      <p class="section-subtitle">{{ camp_intro.subtitle }}</p>
+
+      <div class="camp-days-row">
+        {% for day in camp_days %}
+        <div class="camp-day-card {% if day.presencial %}camp-day-highlight{% endif %}">
+          <div class="camp-day-number">DÍA {{ day.number }}</div>
+          <h4>{{ day.title }}</h4>
+          <p class="camp-day-morning">{{ day.morning }}</p>
+          <p class="camp-day-afternoon">{{ day.afternoon }}</p>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="camp-day5-banner">
+        <div class="camp-day5-text">
+          <span class="tag-pill">{{ camp_day5.tag }}</span>
+          <h3>{{ camp_day5.title }}</h3>
+          <p>{{ camp_day5.body }}</p>
+          <p class="camp-day5-footnote">{{ camp_day5.footnote }}</p>
+        </div>
+        <div class="camp-day5-art">
+          <img src="{{ url_for('static', filename='images/' + images.familia_plantando) }}" alt="{{ get_alt('familia_plantando') if get_alt is defined else 'Familia plantando un árbol' }}" onerror="this.style.display='none'">
+        </div>
+      </div>
+
+      <div class="camp-features-row">
+        {% for feature in camp_features %}
+        <div class="tarjeta camp-feature">
+          <div class="camp-feature-icon">✦</div>
+          <h4>{{ feature.title }}</h4>
+          <p>{{ feature.text }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- 4. INSCRIPCION -->
+    <section id="inscripcion" class="section enroll-section">
+      <div class="enroll-grid">
+        <div class="enroll-form-wrap">
+          <h2 class="section-title">{{ enrollment.title }}</h2>
+          <p class="section-subtitle">{{ enrollment.subtitle }}</p>
+
+          <div class="enroll-steps">
+            {% for step in enrollment.steps %}
+            <div class="enroll-step">
+              <span class="enroll-step-number">{{ step.number }}</span>
+              <span class="enroll-step-label">{{ step.label }}</span>
+            </div>
+            {% if not loop.last %}<span class="enroll-step-line"></span>{% endif %}
+            {% endfor %}
+          </div>
+
+          <form id="enrollForm" class="tarjeta enroll-form" novalidate>
+            <div class="form-grid">
+              {% for f in enrollment_fields %}
+              <div class="form-field">
+                <label for="{{ f.name }}">{{ f.label }}</label>
+                {% if f.type == 'select' %}
+                <select id="{{ f.name }}" name="{{ f.name }}" {% if f.required %}required{% endif %}>
+                  {% for opt in f.options %}<option value="{{ opt }}">{{ opt }}</option>{% endfor %}
+                </select>
+                {% else %}
+                <input type="{{ f.type }}" id="{{ f.name }}" name="{{ f.name }}" placeholder="{{ f.placeholder }}" {% if f.required %}required{% endif %}>
+                {% endif %}
+                <span class="field-error" data-error-for="{{ f.name }}"></span>
+              </div>
+              {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">{{ enrollment.cta }}</button>
+            <p class="form-feedback" id="formFeedback" role="status"></p>
+          </form>
+        </div>
+        <div class="enroll-art">
+          <img src="{{ url_for('static', filename='images/' + images.madre_hija_abrazo) }}" alt="Madre abrazando a su hija" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. COMUNIDAD -->
+    <section id="comunidad" class="section community-section">
+      <div class="community-grid">
+        <div class="community-text">
+          <h2 class="section-title">{{ community.title }}</h2>
+          {% for line in community.body_lines %}<p class="section-body">{{ line }}</p>{% endfor %}
+        </div>
+        <div class="tarjeta community-card">
+          <h3>{{ community.card_title }} ♥</h3>
+          <p>{{ community.card_body }}</p>
+          <a href="{{ site.whatsapp_link }}" target="_blank" rel="noopener" class="btn btn-whatsapp">
+            ● {{ community.whatsapp_cta }}
+          </a>
+        </div>
+        <div class="community-photo">
+          <img src="{{ url_for('static', filename='images/' + images.grupo_apoyo_mujeres) }}" alt="Grupo de madres apoyándose" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. IMPACTO -->
+    <section id="impacto" class="section impact-section">
+      <h2 class="section-title">{{ impact.title }}</h2>
+      <div class="impact-stats-row">
+        {% for stat in impact_stats %}
+        <div class="tarjeta impact-stat">
+          <div class="impact-icon">✦</div>
+          <div class="impact-value">{{ stat.value | miles }}</div>
+          <div class="impact-label">{{ stat.label }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      <p class="impact-quote">&ldquo;{{ impact.quote }}&rdquo; ♥</p>
+    </section>
+
+
+    <!-- 8. JARDIN DE ALMA (mensaje final) -->
+    <section id="jardin" class="section closing-section">
+      <img class="closing-flowers" src="{{ url_for('static', filename='images/' + images.flores_footer) }}" alt="" onerror="this.style.display='none'">
+      <h2>{{ closing.line_1 }}</h2>
+      <p>{{ closing.line_2 }}</p>
+      <a href="#inscripcion" class="btn btn-primary">{{ closing.cta }}</a>
+    </section>
+
+  </main>
+</div>
+
+<!-- ============================== CONTACTO / FOOTER ============================== -->
+<footer id="contacto" class="site-footer">
+  <div class="footer-inner">
+    <span>{{ footer.tagline }}</span>
+    <span>{{ footer.rights }}</span>
+    <div class="footer-social">
+      {% for s in footer.social %}
+      <a href="{{ s.url }}" target="_blank" rel="noopener" aria-label="{{ s.name }}">{{ s.icon[0]|upper }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
