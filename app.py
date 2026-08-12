@@ -353,7 +353,7 @@ VALUES = [
 
 CAMP_INTRO = {
     "title": "Programa ALMA",
-    "subtitle": "5 días para conectar, aprender y sanar.",
+    "subtitle": "6 días para conectar, aprender y sanar.",
 }
 
 CAMP_DAYS = [
