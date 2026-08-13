@@ -73,8 +73,8 @@ class Config:
         "tengan que caminar solas."
     )
     CONTACT_EMAIL = "hola@almacomunidad.org"
-    WHATSAPP_LINK = "https://chat.whatsapp.com/CAMBIAR-ESTE-ENLACE"
-    INSTAGRAM_LINK = "https://instagram.com/alma.comunidad"
+    WHATSAPP_LINK = "https://chat.whatsapp.com/CjpxQBRoytfDNFRO4UFpH8"
+    INSTAGRAM_LINK = "https://www.instagram.com/__alma.rd?igsh=aXlmdmhlbTA0NjU2"
     FACEBOOK_LINK = "https://facebook.com/alma.comunidad"
     CURRENT_YEAR = datetime.now().year
 
