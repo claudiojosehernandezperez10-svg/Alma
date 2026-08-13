@@ -231,7 +231,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-lila-oscur
 .tag-pill { display: inline-block; background: var(--color-rosa-acento); color: var(--color-blanco); font-size: .72rem; font-weight: 800; letter-spacing: .05em; padding: 6px 14px; border-radius: var(--radio-pastilla); margin-bottom: 12px; }
 .camp-day5-text h3 { margin-bottom: 8px; }
 .camp-day5-footnote { color: var(--color-rosa-acento); font-weight: 700; font-size: .85rem; }
-.camp-day5-art img { border-radius: var(--radio-mediano); width: 150px}
+.camp-day5-art img { border-radius: var(--radio-mediano); width: 600px}
 
 .camp-features-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .camp-feature-icon { color: var(--color-lila-primario); font-size: 1.2rem; margin-bottom: 8px; }
